@@ -28,8 +28,8 @@
         temperatures: [],
       }
     },
-    mounted() {
-    fetch('https://localhost:44343/weatherforecast')
+    async mounted() {
+    await  fetch('https://localhost:44343/weatherforecast')
       .then(response => response.json())
       .then(json => {
           this.temperatures = json
