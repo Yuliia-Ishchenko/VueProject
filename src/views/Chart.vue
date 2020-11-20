@@ -29,8 +29,8 @@ export default{
       }
     }
   },
-  async mounted() {
-    await fetch('https://localhost:44343/weatherforecast')
+  mounted() {
+    fetch('https://localhost:44343/weatherforecast')
       .then(response => response.json())
       .then(json => {
           for (let i = 0; i < json.length; i++) {
