@@ -33,13 +33,11 @@ export default{
     fetch('https://localhost:44343/weatherforecast')
       .then(response => response.json())
       .then(json => {
-          for (let i = 0; i < json.length; i++) {
-              this.chartOptions.xAxis.categories.push(json[i].date.slice(0,10));
-              this.chartOptions.series[0].data.push(json[i].temperatureC);
-              this.chartOptions.series[1].data.push(json[i].temperatureF);
-          }
-
+          this.chartOptions.xAxis.categories = json.map(i => i.date.slice(0,10));
+          this.chartOptions.series[0].data = json.map(i => i.temperatureC);
+          this.chartOptions.series[1].data = json.map(i => i.temperatureF);
       })
+      
     }
 }
 </script>        
